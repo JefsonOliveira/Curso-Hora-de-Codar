@@ -9,8 +9,11 @@ import Data from "./components/Data";
 // 4 - Renderização de lista
 import ListRender from "./components/ListRender";
 
-//
+// 7 - Render condicional
 import ConditionalRender from "./components/ConditionalRender";
+
+// 8 - Props
+import ShowUserName from "./components/ShowUserName";
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
 
       {/* 7 - Render condicional */}
       <ConditionalRender />
+
+      {/* 8 - Props */}
+      <ShowUserName name="Matheus" />
     </div>
   );
 }
