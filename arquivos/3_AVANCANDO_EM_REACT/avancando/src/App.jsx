@@ -28,6 +28,12 @@ const cars = [
 // 12 - Fragments
 import Fragment from "./components/Fragment.jsx";
 
+// 13 - Children
+import Container from "./components/Container.jsx";
+
+
+
+
 function App() {
   return (
     <div className="App" style={{ paddingBottom: "500px" }}>
@@ -69,6 +75,18 @@ function App() {
 
       {/* 12 - Fragments */}
       <Fragment />
+
+      {/* 13 - Children */}
+      <Container>
+        <p>Alguma coisa</p>
+      </Container>
+      <Container>
+        <div>
+          <h2>Teste</h2>
+          <p>Meu container</p>
+        </div>
+      </Container>
+
     </div>
   );
 }
