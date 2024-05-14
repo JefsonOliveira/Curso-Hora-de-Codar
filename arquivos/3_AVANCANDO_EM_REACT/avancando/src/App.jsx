@@ -34,8 +34,10 @@ import Container from "./components/Container.jsx";
 // 14 - Função em prop
 import ExecuteFunction from "./components/ExecuteFunction.jsx";
 
-
-
+// 15 - State lift
+import { useState } from "react";
+import Message from "./components/Message.jsx";
+import ChangeMessage from "./components/ChangeMessage.jsx";
 
 function App() {
 
@@ -43,6 +45,10 @@ function App() {
   function showMessage() {
     console.log("Evento do componente pai");
   }
+
+  // 15 - State lift
+const [message] = useState("");
+
 
   return (
     <div className="App" style={{ paddingBottom: "500px" }}>
@@ -99,6 +105,9 @@ function App() {
       {/* 14 - Função em prop */}
       <ExecuteFunction myFunction={showMessage} />
 
+      {/* 15 - State lift */}
+      <Message msg={message} />
+      <ChangeMessage handleMessage={ChangeMessage} />
     </div>
   );
 }
