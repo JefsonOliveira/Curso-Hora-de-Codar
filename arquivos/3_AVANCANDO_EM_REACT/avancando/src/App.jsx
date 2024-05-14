@@ -16,11 +16,21 @@ import ConditionalRender from "./components/ConditionalRender";
 import ShowUserName from "./components/ShowUserName";
 
 // 9 - Desestruturando props
-import CarDetails from "./components/CarDetails";
+import CarDetails from "./components/CarDetails.jsx";
+
+// 11 - Renderização de listas com componentes
+const cars = [
+  { id: 1, brand: "Ferrari", color: "Amarelo", km: 0 },
+  { id: 2, brand: "KIA", color: "Branco", km: 200000 },
+  { id: 3, brand: "Renault", color: "Azul", km: 3200 },
+];
+
+// 12 - Fragments
+import Fragment from "./components/Fragment.jsx";
 
 function App() {
   return (
-    <div className="App" style={{ paddingBottom: "500px"}}>
+    <div className="App" style={{ paddingBottom: "500px" }}>
       <h1>Avançando em React</h1>
       {/* 1 - imagem em public */}
       <img src="/img.jpg" alt="ALguma imagem" />
@@ -41,7 +51,24 @@ function App() {
       <ShowUserName name="Matheus" />
 
       {/* 9 - desestruturando props */}
-      <CarDetails brand="VW" km={999} color="Vermelho"/>
+      <CarDetails brand="VW" km={999} color="Vermelho" />
+
+      {/* 10 - Reaproveitamento de componentes */}
+      <CarDetails brand="Fiat" km={123444} color="Branco" />
+      <CarDetails km={9987} color="Azul" brand="Audi" />
+
+      {/* 11 - Renderização de lista com componente */}
+      {cars.map((car) => (
+        <CarDetails
+          key={car.id}
+          brand={car.brand}
+          color={car.color}
+          km={car.km}
+        />
+      ))}
+
+      {/* 12 - Fragments */}
+      <Fragment />
     </div>
   );
 }
