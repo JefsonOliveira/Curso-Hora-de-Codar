@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "name": "capa de chuva",
+      "price": "50.50",
+      "id": 5
+    },
+    {
+      "name": "teclado",
+      "price": "100",
+      "id": 6
+    },
+    {
+      "name": "cadeira",
+      "price": "200",
+      "id": 7
+    },
+    {
+      "id": "9f98",
+      "name": "bicicleta",
+      "price": "250,00"
+    },
+    {
+      "id": "a7e3",
+      "name": "barco",
+      "price": "1000.00"
+    }
+  ]
+}
