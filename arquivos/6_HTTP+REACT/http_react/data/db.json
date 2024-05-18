@@ -3,17 +3,17 @@
     {
       "name": "capa de chuva",
       "price": "50.50",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "teclado",
       "price": "100",
-      "id": 6
+      "id": "6"
     },
     {
       "name": "cadeira",
       "price": "200",
-      "id": 7
+      "id": "7"
     },
     {
       "id": "9f98",
@@ -24,6 +24,26 @@
       "id": "a7e3",
       "name": "barco",
       "price": "1000.00"
+    },
+    {
+      "id": "c83b",
+      "name": "caminhão",
+      "price": "150.000,00"
+    },
+    {
+      "id": "7709",
+      "name": "caminhão",
+      "price": "150.000,00"
+    },
+    {
+      "id": "f6f7",
+      "name": "caminhão",
+      "price": "150.000,00"
+    },
+    {
+      "id": "aa31",
+      "name": "aaa",
+      "price": "111"
     }
   ]
 }

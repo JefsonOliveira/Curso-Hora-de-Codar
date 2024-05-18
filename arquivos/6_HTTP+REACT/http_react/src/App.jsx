@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 
+import { useFetch } from "./hooks/useFetch";
+
 const url = "http://localhost:3000/products";
 
 import "./App.css";
@@ -9,17 +11,8 @@ function App() {
   // 1 - resgatando dados
   const [products, setPorducts] = useState([]);
 
-  useEffect(() => {
-    async function getData() {
-      const res = await fetch(url);
-
-      const data = await res.json();
-
-      setPorducts(data);
-    }
-
-    getData();
-  }, []);
+  // 4 - Custom hook
+  const { data: items, httpConfig } = useFetch(url);
 
   // 2 - envio de dados
   const [name, setName] = useState("");
@@ -33,18 +26,26 @@ function App() {
       price,
     };
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    // 5 - refatorando POST
+    httpConfig(product, "POST");
 
-    // 3 - carregamento dinamico
-    const addedProduct = await res.json();
+    //   const product = {
+    //     name,
+    //     price,
+    //   };
 
-    setPorducts((prevProducts) => [...prevProducts, addedProduct]);
+    //   const res = await fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(product),
+    //   });
+
+    //   // 3 - carregamento dinamico
+    //   const addedProduct = await res.json();
+
+    //   setPorducts((prevProducts) => [...prevProducts, addedProduct]);
   };
 
   return (
@@ -52,11 +53,12 @@ function App() {
       <h1>HTTP em react</h1>
       {/* 1 - resgate de dados */}
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - R$: {product.price}
-          </li>
-        ))}
+        {items &&
+          items.map((product) => (
+            <li key={product.id}>
+              {product.name} - R$: {product.price}
+            </li>
+          ))}
       </ul>
       {/* 2 - enviando dados */}
       <div className="add-product">
