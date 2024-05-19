@@ -12,7 +12,7 @@ function App() {
   const [products, setPorducts] = useState([]);
 
   // 4 - Custom hook
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // 2 - envio de dados
   const [name, setName] = useState("");
@@ -51,6 +51,10 @@ function App() {
   return (
     <div className="App">
       <h1>HTTP em react</h1>
+      {/* 6 - loading */}
+      {loading && <p>Carregando...</p>}
+      {/* 7 - tratando erro */}
+      {error && <p>{error}</p>}
       {/* 1 - resgate de dados */}
       <ul>
         {items &&
@@ -79,7 +83,10 @@ function App() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          <input type="submit" value="Enviar" />
+          {/* <input type="submit" value="Enviar" /> */}
+          {/* 7 - loading post */}
+          {loading && <input type="submit" disabled value="Aguarde" />}
+          {!loading && <input type="submit" value="Criar" />}
         </form>
       </div>
     </div>
