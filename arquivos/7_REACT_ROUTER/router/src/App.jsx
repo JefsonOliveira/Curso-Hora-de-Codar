@@ -5,10 +5,14 @@ import { Outlet } from "react-router-dom";
 // 5 - link entre paginas
 import Navbar from "./components/Navbar";
 
+// 9 - Saerch params
+import SearchForm from "./components/SearchForm";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <SearchForm />
       <Outlet />
       <p>Footer</p>
     </div>

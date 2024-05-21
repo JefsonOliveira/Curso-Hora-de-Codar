@@ -10,7 +10,11 @@ import Contact from "./routes/Contact.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 
 // 1 - Configurando Router
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 
 // 3 - componente base
 import Home from "./routes/Home.jsx";
@@ -20,6 +24,9 @@ import Product from "./routes/Product.jsx";
 
 // 8 - nested route
 import Info from "./routes/Info.jsx";
+
+// 9 - Search params
+import Search from "./routes/Search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +52,15 @@ const router = createBrowserRouter([
       {
         path: "products/:id/info",
         element: <Info />,
+      },
+      // 9 - Search
+      {
+        path: "search",
+        element: <Search />,
+      },
+      {
+        path: "teste",
+        element: <Navigate to="/" />,
       },
     ],
   },
