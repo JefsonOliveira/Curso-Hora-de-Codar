@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+    "name": "Algum serviço 2",
+    "description": "Alguma descrição",
+    "price": 1600,
+    "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+}
+
+###
+
+GET http://localhost:3000/api/services
