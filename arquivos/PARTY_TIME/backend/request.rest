@@ -11,3 +11,20 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/api/services
+
+###
+GET http://localhost:3000/api/services/6650e7adfc97a72ecc0ac7af
+
+###
+DELETE http://localhost:3000/api/services/6650e8edfc97a72ecc0ac7b1
+
+###
+PUT http://localhost:3000/api/services/6652367f80e60e099845a39f
+Content-Type: application/json
+
+{
+    "name": "TESTE ATUALIZAÇÃO",
+    "description": "Alguma descrição",
+    "price": 2000,
+    "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+}
