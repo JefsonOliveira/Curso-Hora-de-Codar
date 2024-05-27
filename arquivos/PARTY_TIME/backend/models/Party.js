@@ -10,7 +10,7 @@ const partySchema = new Schema(
       type: String,
       required: true,
     },
-    Author: {
+    author: {
       type: String,
       required: true,
     },

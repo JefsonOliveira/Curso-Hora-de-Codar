@@ -28,3 +28,64 @@ Content-Type: application/json
     "price": 2000,
     "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
 }
+
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Meu evento",
+    "author": "Matheus",
+    "description": "Uma festa de aniversario",
+    "budget": 1000,
+    "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655",
+    "services": [
+        {
+            "name": "TESTE ATUALIZAÇÃO",
+            "description": "Alguma descrição",
+            "price": 2000,
+            "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+        },
+        {
+            "name": "TESTE ATUALIZAÇÃO",
+            "description": "Alguma descrição",
+            "price": 2000,
+            "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+        }
+    ]
+}
+
+###
+GET http://localhost:3000/api/parties
+
+###
+GET http://localhost:3000/api/parties/6654c59ee4f9cdaa383b3d4e
+
+###
+DELETE http://localhost:3000/api/parties/6654c59ee4f9cdaa383b3d4e
+
+###
+PUT http://localhost:3000/api/parties/6654c893e82ae40debaf58fe
+Content-Type: application/json
+
+{
+    "title": "Meu evento",
+    "author": "Matheus",
+    "description": "Uma festa de aniversario",
+    "budget": 5000,
+    "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655",
+    "services": [
+        {
+            "name": "TESTE ATUALIZAÇÃO",
+            "description": "Alguma descrição",
+            "price": 2000,
+            "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+        },
+        {
+            "name": "TESTE ATUALIZAÇÃO",
+            "description": "Alguma descrição",
+            "price": 2000,
+            "image": "https://cdn.pensador.com/img/imagens/oc/or/ocorvoeopote_ogimage_c.jpg?auto_optimize=low&width=655"
+        }
+    ]
+}
