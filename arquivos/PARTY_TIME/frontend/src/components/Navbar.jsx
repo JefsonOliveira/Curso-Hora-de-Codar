@@ -8,7 +8,7 @@ const Navbar = () => {
       <h2>Party Time!</h2>
       <ul>
         <li>
-          <NavLink to="/">Minhas Festas</NavLink>
+          <NavLink to="/" className="btn" >Minhas Festas</NavLink>
         </li>
         <li>
           <NavLink to="/party/new" className="btn">
