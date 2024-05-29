@@ -44,7 +44,9 @@ const Party = () => {
     <div className="party">
       <h1>{party.title}</h1>
       <div className="actions-container">
-        <Link to={`/party/edit/${party._id}`} className="btn">Editar</Link>
+        <Link to={`/party/edit/${party._id}`} className="btn">
+          Editar
+        </Link>
         <button onClick={handleDelete} className="btn-secondary">
           Excluir
         </button>
@@ -55,7 +57,8 @@ const Party = () => {
         {party.services.map((service) => (
           <div className="service" key={service._id}>
             <img src={service.image} alt={service.name} />
-            <p>{service.name}</p>
+            <p className="service-name">{service.name}</p>
+            <p className="service-price">R$:{service.price}</p>
           </div>
         ))}
       </div>

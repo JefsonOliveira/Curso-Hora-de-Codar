@@ -134,7 +134,7 @@ const CreateParty = () => {
               services.map((services) => (
                 <div className="service" key={services._id}>
                   <img src={services.image} alt={services.name} />
-                  <p className="Service-name">{services.name}</p>
+                  <p className="service-name">{services.name}</p>
                   <p className="service-price">R$: {services.price}</p>
                   <div className="checkbox-container">
                     <input

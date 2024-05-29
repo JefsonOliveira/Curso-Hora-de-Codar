@@ -46,7 +46,7 @@ const EditParty = () => {
     let partyServices = party.services;
 
     if (checked) {
-      partyServices = [...services, filteredService[0]];
+      partyServices = [...partyServices, filteredService[0]];
     } else {
       partyServices = partyServices.filter((s) => s._id !== value);
     }
@@ -54,14 +54,17 @@ const EditParty = () => {
     setParty({ ...party, services: partyServices });
   };
 
+  //   Send a update HTTP request
   const updateParty = async (e) => {
     e.preventDefault();
 
     try {
       const res = await partyFetch.put(`/parties/${party._id}`, party);
-   
-      if(res.status === 200) {
-        navigate(`/party/${id}`)
+
+      if (res.status === 200) {
+        navigate(`/party/${id}`);
+
+        useToast(res.data.msg);
       }
     } catch (error) {
       useToast(error.response.data.msg, "error");
@@ -131,19 +134,19 @@ const EditParty = () => {
           <div className="services-container">
             {services.length === 0 && <p>Carregando...</p>}
             {services.length > 0 &&
-              services.map((services) => (
-                <div className="service" key={services._id}>
-                  <img src={services.image} alt={services.name} />
-                  <p className="Service-name">{services.name}</p>
-                  <p className="service-price">R$: {services.price}</p>
+              services.map((service) => (
+                <div className="service" key={service._id}>
+                  <img src={service.image} alt={service.name} />
+                  <p className="service-name">{service.name}</p>
+                  <p className="service-price">R$: {service.price}</p>
                   <div className="checkbox-container">
                     <input
                       type="checkbox"
-                      value={services._id}
+                      value={service._id}
                       onChange={(e) => handleServices(e)}
                       checked={
                         party.services.find(
-                          (partyService) => partyService._id === services._id
+                          (partyService) => partyService._id === service._id
                         ) || ""
                       }
                     />
