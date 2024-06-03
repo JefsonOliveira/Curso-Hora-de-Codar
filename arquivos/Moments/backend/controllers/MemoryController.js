@@ -114,10 +114,60 @@ const updateMemory = async (req, res) => {
   } catch (error) {}
 };
 
+const toggleFavorite = async (req, res) => {
+  try {
+    const memory = await Memory.findById(req.params.id);
+
+    if (!memory) {
+      return res.status(404).json({ msg: "Memória não encontrada!" });
+    }
+
+    memory.favorite = !memory.favorite;
+
+    await memory.save();
+
+    res.json({ msg: "Adicionada aos favoritos", memory });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Ocorreu um erro!");
+  }
+};
+
+const addComment = async (req, res) => {
+  try {
+    const { name, text } = req.body;
+
+    if (!name || !text) {
+      return res
+        .status(400)
+        .json({ msg: "Por favor, preencha todos os campos." });
+    }
+
+    const comment = { name, text };
+
+    const memory = await Memory.findById(req.params.id);
+
+    if (!memory) {
+      return res.status(404).json({ msg: "Memória não encontrada!" });
+    }
+
+    memory.comments.push(comment);
+
+    await memory.save();
+
+    res.json({ msg: "Comentário adicionado", memory });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Ocorreu um erro!");
+  }
+};
+
 module.exports = {
   createMemory,
   getMemories,
   getMemory,
   deleteMemory,
   updateMemory,
+  toggleFavorite,
+  addComment,
 };
